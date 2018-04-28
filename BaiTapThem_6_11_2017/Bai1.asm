@@ -1,0 +1,22 @@
+.MODEL SMALL
+.STACK 1000H
+.DATA
+    
+.CODE
+    MOV AX,@DATA
+    MOV DS,AX
+    
+    MOV AX,1234H
+    MOV BX,5678H
+    MOV CX,9ABCH
+    
+    PUSH AX
+    PUSH BX
+    XCHG AX,CX
+    POP CX
+    PUSH AX
+    POP BX    
+    
+    MOV AH,4CH
+    INT 21H
+END

@@ -1,0 +1,30 @@
+.MODEL SMALL
+.STACK
+.DATA
+.CODE
+    MOV AX,@DATA
+    MOV DS,AX
+    
+	MOV AX,512CH
+    MOV BX,4185H
+    ADD AX,BX
+	
+;	MOV AX,FE12H
+    MOV BX,1ACBH
+    ADD AX,BX
+    
+;    MOV AX,E1E4H
+;    MOV BX,DAB3H
+    ADD AX,BX
+    
+    MOV AX,7132H
+    MOV BX,7000H
+    ADD AX,BX
+    
+    MOV AX,6389H
+    MOV BX,1176H
+    ADD AX,BX
+        
+    MOV AH,4CH
+    INT 21H        
+END

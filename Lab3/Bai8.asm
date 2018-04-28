@@ -1,0 +1,35 @@
+.MODEL SMALL
+.STACK
+.DATA
+    TBAO1 DB 13,10,"HAY NHAP MOT CHU THUONG (a-z)$"
+    TBAO2 DB 13,10,"CHU HOA TUONG UNG LA: $"
+    KYTU DB ?
+.CODE
+    MOV AX,@DATA
+    MOV DS,AX
+    
+  KIEMTRA:
+    MOV AH,9
+    LEA DX,TBAO1
+    INT 21H
+    
+    MOV AH,8
+    INT 21H
+    CMP AL,'a'
+    JL KIEMTRA
+    CMP AL,'z'
+    JG KIEMTRA   
+    SUB AL,32
+    MOV KYTU,AL
+    
+    MOV AH,9
+    LEA DX,TBAO2
+    INT 21H
+       
+    MOV AH,2
+    MOV DL,KYTU
+    INT 21H
+    
+    MOV AH,4CH
+    INT 21H
+END
